@@ -380,6 +380,7 @@ mappings = {
         "config": {
             "device_class": "safety",
             "force_update": "true",
+	    "off_delay": "5",
             "payload_on": "1",
             "payload_off": "0",
             "entity_category": "diagnostic"
@@ -392,6 +393,7 @@ mappings = {
         "config": {
             "device_class": "safety",
             "force_update": "true",
+	    "off_delay": "5",
             "payload_on": "1",
             "payload_off": "0",
             "entity_category": "diagnostic"

@@ -17,7 +17,9 @@ Older compilers and toolchains are supported as a key-goal.
 Low resource consumption and very few dependencies allow rtl_433 to run on embedded hardware like (repurposed) routers.
 Systems with 32-bit i686 and 64-bit x86-64 as well as (embedded) ARM, like the Raspberry Pi and PlutoSDR are well supported.
 
-See [BUILDING.md](docs/BUILDING.md)
+
+For Roboguard support, build on your target platform: See [BUILDING.md](docs/BUILDING.md)
+
 
 On Debian (sid) or Ubuntu (19.10+), `apt-get install rtl-433` for other distros check https://repology.org/project/rtl-433/versions
 
@@ -302,6 +304,7 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
     [217]  EMOS E6016 rain gauge
     [218]  Microchip HCS200/HCS300 KeeLoq Hopping Encoder based remotes (FSK)
     [219]  Fine Offset Electronics WH45 air quality sensor
+	[220]  Roboguard wireless PIR
 
 * Disabled by default, use -R n or a conf file to enable
 
@@ -507,6 +510,15 @@ or add
     blacklist dvb_usb_rtl28xxu
 
 to /etc/modprobe.d/blacklist.conf
+
+## Homassistant integration
+run in Homeassistant OS, or ona  seperate device on your network which can reach your MQTT broker (and has good antenna placement)
+Python requires PAHO ( pip install paho )
+
+run rtl_433 with your decoder(s) of choice ( number 219 in this example )and use the MQTT output
+* `rtl_433 -M time:unix:usec:utc  -R 219 -F "mqtt://<mqtt host>:1883,user=<mqtt username>,pass=<mqtt password>,retain=0"`
+Also run rtl_433_mqtt_hass.py from the example folder
+* `/rtl_433_mqtt_hass.py -u <mqtt username> -P <mqtt password> -H <mqtt host>`
 
 ## Releases
 
