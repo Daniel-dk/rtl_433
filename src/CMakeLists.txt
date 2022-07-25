@@ -177,6 +177,7 @@ add_library(r_433 STATIC
     devices/rainpoint.c
     devices/regency_fan.c
     devices/rftech.c
+    devices/roboguard.c
     devices/rojaflex.c
     devices/rubicson.c
     devices/rubicson_48659.c
